@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr.custom.73472.js"></script>
+    </head>
+    <body>
+  		<section class="lab">
+  			
+<h1>Sass Switch Mixin.</h1>
+
+<p class="highlited">
+	Create switches width one line of css!
+</p>
+
+<h2>
+	==========
+	HTML
+	==========
+</h2>
+<p>
+The Html is composed by :
+	<ul>
+		<li>A container. It can be any element you want, div, p, a, span</li>
+		<li>A checkbox input with data-type=switch</li>
+		<li>The label</li>
+	</ul>
+</p>
+
+<h3>
+	Here is a full example.
+</h3>
+<pre>
+	<code>
+		 &lt;p class="switch ios rounded"&gt;
+			 &lt;input type="checkbox" name="my-switch" data-type="switch"&gt;
+			 &lt;label for="my-switch"&gt; &lt;label&gt;
+		 &lt;p&gt;	
+	</code>
+</pre>
+
+<p class="switch ios rounded">
+	<input type="checkbox" name="my-switch" data-type="switch">
+	<label for="my-switch"></label>
+</p>
+
+<p class="highlited">
+	The use of classes depends on what type of css implementation is done, sass or css.
+</p>
+<p class="highlited">
+	You can use the switch with Sass or as standalone css file.
+</p>
+
+<h2>
+	==========
+	CSS
+	==========
+</h2>
+
+<p  class="highlited">
+	Use without Sass.
+
+</p>
+<p>
+	<ul>
+		<li>You need to import the file switch.css or switch.min.css
+</li>
+		<li>There are 2 ways of importing it :</li>
+	</ul>
+</p>
+
+<ul>
+	<li>Via @import. Be aware that this will be a new http request</li>
+	<li>Copy and paste the styles in you main css file, possibly at the end of the file.(recommended)
+</li>
+</ul>
+<p>
+Once you have imported the css file you can create a switch just adding classes to your HTML code(For the HTML Code refer to the <a href="#html"> html part</a>).
+	
+</p>
+
+<p> 
+	Possible classes:
+	<ul>
+		<li>switch -> Creates a basic switch button in ios style.</li>
+		<li>ios -> Ios Button</li>
+		<li>rounded -> Used together with ios, Rounded Button</li>
+		<li>square -> Used together with ios, Square Button</li>
+		<li>switch material -> Material Design style Button</li>
+	</ul>
+</p>
+
+<p class="highlited">
+	Full Examples :
+
+</p>
+<code>
+	<p class="switch ios rounded">
+		<input type="checkbox" name="my-switch" data-type="switch">
+		<label for="my-switch"></label>
+	</p>
+
+	<p class="switch ios square">
+		<input type="checkbox" name="my-switch" data-type="switch">
+		<label for="my-switch"></label>
+	</p>
+
+	<p class="switch material">
+		<input type="checkbox" name="my-switch" data-type="switch">
+		<label for="my-switch"></label>
+	</p>
+</code>
+<h2>
+==========
+SASS
+==========	
+</h2>
+
+<p class="highlited">
+	To use the mixin with sass.
+</p>
+<ul>
+	<li>import the mixin (_switch.scss) in your sass file</li>
+	<li>@import "switch";</li>
+	<li>include the mixin, possibly at the top of the declaration:</li>
+</ul>
+
+<code>
+.switch {
+	@include switch();	
+}
+	
+</code>
+<p class="highlited">
+	Parameters :
+</p> 
+<ul>
+	<li>$type - String - It can be either "ios" or "material". Default value is "ios". 
+</li>
+	<li>$width: Number - Any number (with no unit) to define the width. Default value is 50</li>
+	<li>$subtype: String - Must be declared if the type is 'ios'. Can be 'rounded' or 'square'. Default</li>
+	<li> value null or 'rounded'.</li>
+	<li>$materialBackground - Hex Value - Must be declared if type is 'material'. Defines the background</li>
+	<li> color. Default value: #8BC34A.
+</li>
+	<li>
+		$toggleBackground - HHex value - Defines the background for the toggle button. Default value is #ffffff.
+	</li>
+</ul>
+
+<p class="highlited">
+	If no parameters are defined these are the default values: 
+</p>
+<ul>
+	<li>$type: 'ios'</li>
+	<li>$width: 50</li>
+	<li>$subtype: 'rounded'</li>
+	<li>$materialBackground: #8BC34A</li>
+	<li>$toggleBackground: #ffffff</li>
+</ul>
+
+<p class="highlited">
+	Full Example:
+</p> 
+<code>
+<pre>
+.my-switch {
+	@include switch(
+	$type: 'material',
+	$width: 60, 
+	$materialBackground: #FFEB3B,
+	$toggleBackground: #f9f9f9
+	);
+}		
+</pre>
+
+<pre>
+&lt;p class="my-switch"&gt;
+	&lt;input type="checkbox" name="my-switch" data-type="switch"&gt;
+	&lt;label for="my-switch"&gt; &lt;label&gt;
+&lt;p&gt;
+</pre>
+</code>
+<p class="my-switch">
+	<input type="checkbox" name="my-switch" data-type="switch">
+	<label for="my-switch"></label>
+</p>
+<h2>
+	=======================
+		LIVE EXAMPLES
+	=======================
+</h2>
+<p>
+<a href="index.html" class="highlited">Live Examples</a>	
+</p>
+ </section>	
+	</body>
+</html>
+

@@ -1,0 +1,71 @@
+
+// General Styles  
+.lab {
+    width: 960px;
+    margin: auto;
+}
+
+h1{
+	border-bottom: 2px solid #e5e5e5;
+	padding-bottom: 10px;
+	margin-bottom: 40px;
+}
+h2 {
+	font-size: 0.875em;
+	position: absolute;
+	top: -35px;
+	text-align: left;	
+}
+
+.item {
+	position: relative;
+	margin-right: 50px;
+	margin-bottom: 40px;	
+	width: 25%;
+	margin-right:  14px;
+	display: inline-block;
+	background: #f9f9f9;
+	border: 1px solid #e5e5e5;
+	border-radius:4px;
+	padding: 20px; 
+	text-align: center;
+	height: 50px; 
+	vertical-align: top;
+}
+.highlited {
+	background: #f1f1f1;
+	border: 1px solid #e5e5e5;
+	padding: 10px; 
+
+}
+code {
+	background: #f5f5f5;
+	border: 1px solid #e5e5e5;
+	display: block;
+	max-width: 800px;
+	margin: auto 0;
+}
+
+// Switch Buttons
+.ios {
+	@include switch($type: 'ios');
+}
+.material {
+	@include switch($type: 'material');	
+}
+
+.ios.square {
+	@include switch($type: 'ios', $subtype: 'square');	
+}
+
+.material.purple {
+	@include switch($type: 'material', $materialBackground: #512DA8);
+}
+.my-switch {
+	@include switch(
+	$type: 'material',
+	$width: 60, 
+	$materialBackground: #FFEB3B,
+	$toggleBackground: #f9f9f9
+	);
+}

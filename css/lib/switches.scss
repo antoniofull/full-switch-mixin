@@ -1,0 +1,13 @@
+@import "lib/switch";
+.ios {
+	@include switch($type: 'ios', $subtype: 'rounded');
+	&.rounded {
+		@include switch($type: 'ios', $subtype: 'rounded');
+	}
+	&.square {
+		@include switch($type: 'ios', $subtype: 'square');		
+	}
+}
+.material {
+	@include switch($type: 'material');
+}
